@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <style>
+        body {
+            background-image: url('img/hinhnen.png'); /* Đường dẫn tới ảnh */
+            background-size: 100% 100%; /* Ảnh sẽ được giãn đều theo kích thước màn hình */
+            background-repeat: no-repeat; /* Không lặp lại ảnh */
+            background-attachment: fixed; /* Ảnh cố định khi cuộn trang */
+            margin: 0; /* Xóa khoảng trắng mặc định của body */
+            height: 100vh; /* Chiều cao body sẽ bao phủ toàn bộ màn hình */
+        }
+        .menu-strip {
+            background-color: rgba(185, 224, 237, 0.5); /* Màu xanh dương nhạt trong suốt */
+            padding: 10px;
+            display: flex; /* Sử dụng Flexbox */
+            justify-content: center; /* Căn các nút vào giữa */
+            font-family: Arial, sans-serif; /* Kiểu chữ Arial */
+            font-size: 30px; /* Kích thước chữ */
+            color: black; /* Màu chữ đen */
+        }
+        .menu-strip a {
+            text-decoration: none; /* Loại bỏ gạch chân mặc định của thẻ a */
+        }
+        .menu-strip button {
+            background-color: transparent; /* Màu nền trong suốt */
+            border: none;
+            color: black; /* Màu chữ đen */
+            font-family: Arial, sans-serif; /* Kiểu chữ Arial */
+            font-size:30px; /* Kích thước chữ */
+            cursor: pointer;
+            margin: 0 15px; /* Khoảng cách giữa các nút */
+        }
+        .menu-strip button:hover {
+            text-decoration: underline; /* Gạch chân khi hover */
+            color: rgba(3, 3, 45, 0.108); /* Chuyển sang màu xanh đậm khi hover */
+            font-weight: bold; /* Tô đậm chữ khi hover */
+        }
+        /* Lớp CSS cho nút hiện tại (đang ở trang này) */
+        .menu-strip .active {
+            color: darkblue; /* Màu chữ khi chọn trang */
+            font-weight: bold; /* Tô đậm chữ */
+            text-decoration: underline; /* Gạch chân chữ */
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-strip">
+        <a href="Trangchu.html"> <!-- Link đến trang chủ -->
+            <button class="active">Trang chủ</button>
+        </a>
+        <a href="lythuyet.html"> <!-- Link đến trang tìm hiểu thuật toán -->
+            <button>Tìm hiểu thuật toán</button>
+        </a>
+        <a href="mophong.html"> <!-- Link đến trang mô phỏng thuật toán -->
+            <button>Mô phỏng thuật toán</button>
+        </a>
+        <a href="Trochoi.html"> <!-- Link đến trang trò chơi -->
+            <button>Trò chơi</button>
+        </a>
+     
+    </div>
+</body>
+</html>

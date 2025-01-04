@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sắp xếp trộn</title>
+    <link rel="stylesheet" href="sapxep.css"> <!-- Liên kết đến file CSS -->
+
+    <style>
+        body {
+            background-image: url('img/nensapxeptrochoi.png'); /* Đường dẫn tới ảnh */
+            background-size: 100% 100%; /* Ảnh sẽ được giãn đều theo kích thước màn hình */
+            background-repeat: no-repeat; /* Không lặp lại ảnh */
+            background-attachment: fixed; /* Ảnh cố định khi cuộn trang */
+            margin: 0; /* Xóa khoảng trắng mặc định của body */
+            height: 100vh; /* Chiều cao body sẽ bao phủ toàn bộ màn hình */
+        }
+    </style>
+</head>
+<body>  
+
+
+<div id="cay-container"></div>
+
+
+    <!-- Nơi hiển thị nhóm hình ảnh -->
+    <div id="group-container"></div>
+
+    <!-- Container hình ảnh -->
+    <div id="content-container"></div>
+        
+    <!-- Thêm thẻ audio để phát nhạc liên tục -->
+    <audio id="background-music" loop>
+        <source src="sound/nhactrochoi.mp3" type="audio/mp3">
+        Trình duyệt của bạn không hỗ trợ thẻ audio.
+    </audio>
+    
+    <script src="sapxep.js"></script> <!-- Liên kết đến file JavaScript -->
+
+    <script>
+        // Phát nhạc tự động khi trang được tải (nếu trình duyệt không chặn âm thanh)
+        window.onload = function() {
+            const audio = document.getElementById("background-music");
+            audio.play();  // Phát nhạc khi trang được tải
+            addGroupIcon();
+        };
+
+      
+    </script>
+
+
+
+<div id="tree-container"></div>
+
+<div id="game-controls">
+    <img id="tao-image" src="img/Tao.png" alt="Tao">
+    <img id="chia-image" src="img/Chia.png" alt="Chia">
+    <img id="hopnhat-image" src="img/Hopnhat.png" alt="Hopnhat">
+    <img src="img/Ketthuc.png" id="ketthuc-image" alt="Kết thúc" style="cursor: pointer;">
+
+</div>
+<div style="position: relative; margin: 1cm;">
+    <!-- Thời gian -->
+    <div id="countdown-timer" 
+         style="position: absolute; top: 1cm; left: 1cm; font-size: 22px; font-family: Arial; font-weight: bold; color: rgb(9, 9, 9); 
+                background-color: #c1eeed; border: 4px solid #379292; padding: 15px; border-radius: 15px; width: 200px; text-align: center;">
+    </div>
+
+    <!-- Instructions -->
+    <div id="instructions" 
+         style="position: absolute; top: 3cm; left: 1cm; font-size: 20px; font-family: Arial; font-weight: bold; text-align: left;">
+    </div>
+</div>
+
+
+<div id="cay-container" style="margin-top: 3cm;"></div>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+</body>
+</html>

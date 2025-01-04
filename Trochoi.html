@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trò chơi</title>
+    <link rel="stylesheet" href="Trochoi.css"> <!-- Liên kết đến file CSS -->
+</head>
+<body>  
+
+    <!-- Container hình ảnh -->
+    <div id="content-container"></div>
+    <div id="line-overlay"></div>
+
+     <!-- Container sẽ chứa hình ảnh mamcay -->
+     <div id="mamcay-container"></div>
+    <!-- Thêm thẻ audio để phát nhạc liên tục -->
+    <audio id="background-music" loop>
+        <source src="sound/nhacnen.mp3" type="audio/mp3">
+        Trình duyệt của bạn không hỗ trợ thẻ audio.
+    </audio>
+    
+    <!-- Hình ảnh trang chủ ở góc phải màn hình -->
+    <div id="home-button-container">
+        <a href="trangchu.html">
+            <img id="home-button" src="img/trangchu.png" alt="Trang Chủ">
+        </a>
+    </div>
+ <!-- Hình ảnh play ở góc phải màn hình -->
+ <div id="play-button-container">
+        <img id="play-button" src="img/play.png" alt="Play Button">
+</div> 
+    <!-- Thêm thẻ hướng dẫn -->
+    <div id="guide-button-container">
+        <img id="guide-button" src="img/huongdan.png" alt="Hướng Dẫn">
+    </div>
+
+    <!-- Thêm thẻ bảng hướng dẫn -->
+    <div id="guide-modal">
+        <div id="guide-modal-content">
+            <img id="guide-image" src="img/banghuongdan.png" alt="Bảng Hướng Dẫn">
+            <img id="close-button" src="img/tat.png" alt="Đóng" />
+        </div>
+    </div>
+
+    <!-- Hình ảnh sangphai1.png -->
+    <img id="sangphai1" src="img/sangphai1.png" alt="Sang Phai 1" />
+
+     <!-- Hình ảnh sangphai2.png -->
+     <img id="sangphai2" src="img/sangphai2.png" alt="Sang Phai 2" />
+
+    <!-- Hình ảnh sangphai3.png -->
+    <img id="sangphai3" src="img/sangphai3.png" alt="Sang Phai 3" />
+
+    <!-- Hình ảnh sangtrai2.png -->
+    <img id="sangtrai2" src="img/sangtrai2.png" alt="Sang Trai 2" />
+
+    <!-- Hình ảnh sangtrai3.png -->
+    <img id="sangtrai3" src="img/sangtrai3.png" alt="Sang Trai 3" />
+
+    <!-- Hình ảnh sangphai4.png -->
+    <img id="sangphai4" src="img/sangphai4.png" alt="Sang Phai 4" />
+
+    <!-- Hình ảnh sangtrai4.png -->
+    <img id="sangtrai4" src="img/sangtrai4.png" alt="Sang Trai 4" />
+
+     <!-- Thêm thẻ quay lại -->
+     <div id="back-button-container">
+        <img id="back-button" src="img/quaylai.png" alt="Quay Lại">
+    </div>
+    
+     <!-- Thêm thẻ âm thanh -->
+     <div id="sound-button-container">
+        <img id="sound-button" src="img/amthanh.png" alt="Âm Thanh">
+    </div>
+
+    <!-- Nút Start Game -->
+    <div id="start-button-container">
+        <img id="start-button" src="img/start.png" alt="Start Game">
+    </div>
+    
+    <!-- Container sẽ chứa hình ảnh mamcay -->
+    <div id="mamcay-container"></div>
+
+    <script src="Trochoi.js"></script> <!-- Liên kết đến file JavaScript -->
+
+    <script>
+        // Phát nhạc tự động khi trang được tải (nếu trình duyệt không chặn âm thanh)
+        window.onload = function() {
+            const audio = document.getElementById("background-music");
+            audio.play();  // Phát nhạc khi trang được tải
+        };
+
+        // Kích hoạt nhạc khi người dùng nhấn vào nút bắt đầu
+        document.getElementById("start-button").addEventListener("click", function() {
+            const audio = document.getElementById("background-music");
+
+            // Phát nhạc khi người dùng nhấn vào start-button
+            audio.play();
+
+            const startButton = document.getElementById("start-button");
+
+            // Thêm lớp 'morph' vào hình ảnh start.png để thực hiện hiệu ứng phóng to và biến mất
+            startButton.classList.add("morph");
+
+            // Sau khi hiệu ứng phóng to hoàn tất (1 giây), thay đổi nền và ẩn hình ảnh
+            setTimeout(function() {
+                // Thay đổi background thành thoai1.png
+                document.body.style.backgroundImage = "url('img/thoai1.png')";
+                // Ẩn hình ảnh start.png
+                startButton.style.display = "none";
+            }, 1000); // Thời gian này phải khớp với thời gian hiệu ứng phóng to (1s)
+        });
+    </script>
+
+
+    
+
+</body>
+</html>

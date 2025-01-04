@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lý thuyết</title>
+    <style>
+        body {
+            background-image: url('img/lythuyet.png'); /* Đường dẫn tới ảnh nền */
+            background-size: 100% 100%; /* Ảnh nền sẽ được giãn đều theo kích thước màn hình */
+            background-repeat: no-repeat; /* Không lặp lại ảnh */
+            background-attachment: fixed; /* Ảnh cố định khi cuộn trang */
+            margin: 0; /* Xóa khoảng trắng mặc định của body */
+            height: 100vh; /* Chiều cao body sẽ bao phủ toàn bộ màn hình */
+            font-family: Arial, sans-serif; /* Kiểu chữ Arial */
+        }
+        .menu-strip {
+            background-color: rgba(185, 224, 237, 0.5); /* Màu xanh dương nhạt trong suốt */
+            padding: 10px;
+            display: flex; /* Sử dụng Flexbox */
+            justify-content: center; /* Căn các nút vào giữa */
+            font-family: Arial, sans-serif; /* Kiểu chữ Arial */
+            font-size: 30px; /* Kích thước chữ */
+            color: black; /* Màu chữ đen */
+        }
+        .menu-strip a {
+            text-decoration: none; /* Loại bỏ gạch chân mặc định của thẻ a */
+        }
+        .menu-strip button {
+            background-color: transparent; /* Màu nền trong suốt */
+            border: none;
+            color: black; /* Màu chữ đen */
+            font-family: Arial, sans-serif; /* Kiểu chữ Arial */
+            font-size: 30px; /* Kích thước chữ */
+            cursor: pointer;
+            margin: 0 15px; /* Khoảng cách giữa các nút */
+        }
+        .menu-strip button:hover {
+            text-decoration: underline; /* Gạch chân khi hover */
+            color: rgba(3, 3, 45, 0.108); /* Chuyển sang màu xanh đậm khi hover */
+            font-weight: bold; /* Tô đậm chữ khi hover */
+        }
+        /* Lớp CSS cho nút hiện tại (đang ở trang này) */
+        .menu-strip .active {
+            color: darkblue; /* Màu chữ khi chọn trang */
+            font-weight: bold; /* Tô đậm chữ */
+            text-decoration: underline; /* Gạch chân chữ */
+        }
+
+        /* Khung chứa nội dung */
+        .content-container {
+            background-color: white; /* Màu nền trắng */
+            padding: 20px; /* Khoảng cách bên trong khung */
+            margin: 40px auto; /* Căn giữa và thêm khoảng cách phía trên */
+            width: 80%; /* Chiếm 80% chiều rộng của màn hình */
+            max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+            border-radius: 10px; /* Bo góc khung */
+            border: 5px solid black; /* Thêm khung viền đen đậm */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Thêm hiệu ứng bóng */
+        }
+
+        /* Tiêu đề lớn */
+        .content-container h1 {
+            font-size: 36px; /* Cỡ chữ lớn */
+            font-weight: bold; /* In đậm */
+            text-align: center; /* Căn giữa */
+            margin-bottom: 30px; /* Khoảng cách dưới tiêu đề */
+            color: darkblue; /* Màu chữ tiêu đề */
+        }
+
+        .content-container h2 {
+            font-weight: bold; /* In đậm tiêu đề con */
+            font-size: 24px; /* Cỡ chữ tiêu đề con */
+        }
+
+        .content-container p {
+            font-size: 18px; /* Cỡ chữ nội dung */
+            line-height: 1.6; /* Khoảng cách giữa các dòng */
+        }
+
+        /* Chú thích */
+        .content-container .caption {
+            text-align: center; /* Căn giữa chú thích */
+            font-style: italic; /* Chữ in nghiêng */
+            font-size: 16px; /* Cỡ chữ nhỏ hơn */
+            margin-top: 10px; /* Khoảng cách trên chú thích */
+            color: #555; /* Màu chữ nhẹ cho chú thích */
+        }
+
+        /* In nghiêng cho đoạn code */
+        .content-container code {
+            font-family: 'Courier New', monospace; /* Kiểu chữ Courier New */
+            font-size: 18px; /* Cỡ chữ 18px */
+            font-style: italic; /* In nghiêng */
+            white-space: pre-wrap; /* Cho phép xuống dòng */
+            background-color: #f4f4f4; /* Màu nền nhẹ cho đoạn code */
+            padding: 10px;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto; /* Căn giữa */
+            width: 90%; /* Chiếm 90% chiều rộng */
+        }
+
+        /* Highlight màu vàng nhạt */
+        .highlight {
+            background-color: #ffff99; /* Màu vàng nhạt */
+        }
+
+        /* Canh giữa hình ảnh */
+        .content-container img {
+            display: block;
+            margin: 20px auto; /* Căn giữa */
+            max-width: 100%; /* Giới hạn chiều rộng ảnh */
+            height: auto; /* Tự động điều chỉnh chiều cao */
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-strip">
+        <a href="Trangchu.html"> <!-- Link đến trang chủ -->
+            <button>Trang chủ</button>
+        </a>
+        <a href="lythuyet.html"> <!-- Link đến trang tìm hiểu thuật toán -->
+            <button class="active">Tìm hiểu thuật toán</button>
+        </a>
+        <a href="mophong.html"> <!-- Link đến trang mô phỏng thuật toán -->
+            <button>Mô phỏng thuật toán</button>
+        </a>
+        <a href="Trochoi.html"> <!-- Link đến trang trò chơi -->
+            <button>Trò chơi</button>
+        </a>
+     
+    </div>
+
+    <div class="content-container">
+        <!-- Tiêu đề lớn -->
+        <h1>TÌM HIỂU VỀ THUẬT TOÁN SẮP XẾP TRỘN - MERGE SORT</h1>
+
+        <h2>1. Thuật toán Merge Sort hoạt động như thế nào?</h2>
+        <p>
+            Merge Sort hoạt động trên nguyên tắc chia để trị. Merge Sort chia nhỏ nhiều lần một mảng (array) thành hai mảng con bằng nhau cho đến khi mỗi mảng con (subarray) bao gồm một phần tử duy nhất. Cuối cùng, tất cả các mảng con đó được hợp nhất để sắp xếp mảng kết quả.<br>
+            Khái niệm này có thể được giải thích hiệu quả hơn với sự trợ giúp của một ví dụ. Hãy xem xét một mảng không được sắp xếp với các phần tử sau: {16, 12, 15, 13, 19, 17, 11, 18}.
+        </p>
+        
+        <img src="img/VIDU.PNG" alt="Ví dụ Merge Sort">
+        <div class="caption">
+            Ví dụ minh họa về thuật toán Merge Sort
+        </div>
+
+        <!-- Thêm video YouTube -->
+        <div style="display: flex; justify-content: center; margin: 20px 0;">
+            <iframe 
+                width="800" 
+                height="450" 
+                src="https://www.youtube.com/embed/f2nTwlZiuMI" 
+                title="Merge Sort Visualization" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="caption">
+            Ví dụ minh họa về thuật toán Merge Sort
+        </div>
+        <h2>2. Thuật toán Merge Sort</h2>
+        <p>
+            Ở đây, thuật toán Merge Sort chia mảng thành hai nửa, gọi lại hàm cho hai nửa (calls itself for the two halves) và sau đó hợp nhất hai nửa đã sắp xếp.
+        </p>
+        
+        <img src="img/thuattoan.png" alt="Thuật toán Merge Sort">
+        <div class="caption">
+            Thuật toán Merge Sort
+        </div>
+
+        <!-- Độ phức tạp về thời gian và bộ nhớ -->
+        <h2>3. Độ phức tạp về thời gian và bộ nhớ của thuật toán Merge Sort</h2>
+        <p>
+            Thuật toán Merge Sort có thể được biểu diễn dưới dạng quan hệ lặp lại sau:
+        </p>
+             <code>T (n) = 2T (n / 2) + O (n)</code>
+        <p>
+            Sau khi giải quan hệ lặp lại này bằng cách sử dụng định lý thợ (master’s theorem) hoặc phương pháp cây đệ quy (recurrence tree), bạn sẽ nhận được nghiệm (solution) là O (n logn). Do đó, độ phức tạp về thời gian (time complexity) của thuật toán Merge Sort là O (n logn).
+        </p>
+        <p class="highlight">
+            Độ phức tạp thời gian trong trường hợp tốt nhất của Merge Sort: O (n logn) <br>
+            Độ phức tạp thời gian theo trường hợp trung bình của Merge Sort: O (n logn) <br> 
+            Độ phức tạp thời gian trong trường hợp xấu nhất của Merge Sort: O (n logn) <br>
+            Độ phức tạp của bộ nhớ phụ (auxiliary space complexity) của thuật toán Merge Sort là O (n). Vì n bộ nhớ phụ được yêu cầu trong việc thực hiện Merge Sort.
+        </p>
+
+        <!-- Triển khai thuật toán merge sort trong Python -->
+        <h2>4. Triển khai thuật toán Merge Sort trong Python</h2>
+        <p><b>Dưới đây là cách triển khai thuật toán Merge Sort trong Python:</b></p>
+        <code>
+        # Python implementation of the<br>
+        // Merge Sort algorithm<br>
+        def mergeSort(arr):<br>
+        if len(arr) > 1:<br>
+        # Finding the middle index of the array<br>
+        middleIndex = len(arr)//2<br>
+        # Left half of the array<br>
+        L = arr[:middleIndex]<br>
+        # Right half of the array<br>
+        R = arr[middleIndex:]<br>
+        # Sorting the first half of the array<br>
+        mergeSort(L)<br>
+        # Sorting the second half of the array<br>
+        mergeSort(R)<br>
+        # Initial index of Left subarray<br>
+        i = 0<br>
+        # Initial index of Right subarray<br>
+        j = 0<br>
+        # Initial index of merged subarray<br>
+        k = 0<br>
+        # Copy data to temp arrays L[] and R[]<br>
+        while i < len(L) and j < len(R):<br>
+            if L[i] < R[j]:<br>
+                arr[k] = L[i]<br>
+                i = i + 1<br>
+            else:<br>
+                arr[k] = R[j]<br>
+                j = j + 1<br>
+            k = k + 1<br>
+        # Checking if there're some remaining elements<br>
+        while i < len(L):<br>
+            arr[k] = L[i]<br>
+            i = i + 1<br>
+            k = k + 1<br>
+        while j < len(R):<br>
+            arr[k] = R[j]<br>
+            j = j + 1<br>
+            k = k + 1<br>
+        # Function to print the elements <br>
+        # of the array <br>
+        def printArray(arr, size): <br>
+            for i in range(size): <br>
+                print(arr[i], end=" ") <br>
+            print()  <br>
+        # Driver code <br>
+        arr = [ 16, 12, 15, 13, 19, 17, 11, 18 ] <br>
+        size = len(arr) <br>
+        print("Unsorted array:") <br>
+        printArray(arr, size) <br>
+        mergeSort(arr) <br>
+        print("Sorted array:") <br>
+        printArray(arr, size) <br>
+            </code>
+
+        <p><b>Đầu ra:</b></p>
+        <p>
+            Unsorted array:<br>
+            16 12 15 13 19 17 11 18<br>
+            Sorted array:<br>
+            11 12 13 15 16 17 18 19
+        </p>
+    </div>
+</body>
+</html>

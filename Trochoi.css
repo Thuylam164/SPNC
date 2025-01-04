@@ -1,0 +1,443 @@
+/* Đặt nền cho body */
+body {
+    background-image: url('img/nentrochoi.png'); /* Đường dẫn tới ảnh nền */
+    background-size: 100% 100%; /* Ảnh sẽ được giãn đều theo kích thước màn hình */
+    background-repeat: no-repeat; /* Không lặp lại ảnh */
+    background-attachment: fixed; /* Ảnh cố định khi cuộn trang */
+    margin: 0; /* Xóa khoảng trắng mặc định của body */
+    height: 100vh; /* Chiều cao body sẽ bao phủ toàn bộ màn hình */
+    transition: background-image 0.5s ease-in-out; /* Hiệu ứng chuyển nền */
+}
+img {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+/* Hiệu ứng khi hình ảnh ẩn */
+img.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+}
+/* Định dạng cho hình ảnh trang chủ */
+#home-button-container {
+    position: fixed;
+    top: 20px; /* Cách phần trên màn hình 20px */
+    right: 20px; /* Cách phần bên phải màn hình 20px */
+    z-index: 10; /* Đảm bảo hình ảnh nằm trên nền */
+    cursor: pointer;
+}
+
+#home-button {
+    width: 50px; /* Kích thước hình ảnh trangchu.png */
+    height: auto;
+    transition: transform 0.5s ease-in-out; /* Hiệu ứng phóng to khi hover */
+}
+
+#home-button:hover {
+    transform: scale(1.2); /* Phóng to hình ảnh khi hover */
+}
+
+/* Định dạng cho hình ảnh hướng dẫn */
+#guide-button-container {
+    position: fixed;
+    top: 20px; /* Cách phần trên màn hình 20px */
+    right: 80px; /* Cách bên phải màn hình 80px */
+    z-index: 10; /* Đảm bảo hình ảnh nằm trên nền */
+    cursor: pointer;
+}
+
+#guide-button {
+    width: 50px; /* Kích thước hình ảnh huongdan.png */
+    height: auto;
+    transition: transform 0.5s ease-in-out; /* Hiệu ứng phóng to khi hover */
+}
+
+#guide-button:hover {
+    transform: scale(1.2); /* Phóng to hình ảnh khi hover */
+}
+
+/* Định dạng cho bảng hướng dẫn */
+#guide-modal {
+    display: none; /* Ẩn bảng hướng dẫn mặc định */
+    position: fixed;
+    top: 50%; /* Căn giữa theo chiều dọc */
+    left: 50%; /* Căn giữa theo chiều ngang */
+    transform: translate(-50%, -50%); /* Dịch chuyển chính giữa màn hình */
+    transition: transform 0.5s ease-in-out; /* Hiệu ứng zoom khi hiển thị */
+    z-index: 10;
+}
+
+#guide-modal.show {
+    display: block; /* Hiển thị bảng hướng dẫn khi có lớp 'show' */
+    transform: translate(-50%, -50%) scale(1); /* Hiển thị và phóng to bảng hướng dẫn */
+    
+}
+
+/* Định dạng cho nội dung bảng hướng dẫn */
+#guide-modal-content {
+    position: relative;
+    width: 90%; /* Chiếm 90% chiều rộng màn hình */
+    max-width: 1070px; /* Kích thước tối đa của bảng hướng dẫn */
+    height: auto;
+    border-radius: 8px; /* Bo góc */
+    overflow: hidden; /* Ẩn phần thừa */
+    display: flex; /* Dùng Flexbox để căn giữa nội dung */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+#guide-image {
+    height: auto;
+}
+
+
+/* Định dạng cho nút đóng*/
+#close-button {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    width: 45px;
+    z-index: 15;
+    cursor: pointer;
+    transition: transform 0s ease-in-out; /* Hiệu ứng chuyển tiếp cho transform, thời gian là 0s */
+
+}
+#close-button:hover {
+    transform: scale(1.2); /* Phóng to khi hover */
+}
+/* Định dạng cho nút Start Game */
+#start-button-container {
+    position: fixed;
+    bottom: 20px; /* Cách phần dưới màn hình 20px */
+    left: 50%;
+    transform: translateX(-50%); /* Căn giữa hình ảnh */
+    cursor: pointer; /* Khi di chuột qua sẽ có con trỏ chuột */
+    z-index: 10; /* Đảm bảo hình ảnh nằm trên nền */
+}
+
+#start-button {
+    width: 350px; /* Kích thước hình ảnh start.png */
+    height: auto;
+    animation: slight-bounce 1.5s infinite; /* Hiệu ứng nhún nhẹ */
+    transition: transform 1s ease, opacity 1s ease; /* Hiệu ứng phóng to và biến mất */
+}
+
+/* Tạo hiệu ứng nhún nhẹ */
+@keyframes slight-bounce {
+    0%, 100% {
+        transform: translateY(0); /* Vị trí ban đầu */
+    }
+    50% {
+        transform: translateY(-10px); /* Nhún nhẹ lên 10px */
+    }
+}
+
+/* Hiệu ứng phóng to và biến mất khi nhấn */
+.morph {
+    transform: scale(3); /* Phóng to hình ảnh gấp 3 lần */
+    opacity: 0; /* Làm hình ảnh biến mất */
+}
+/* Định dạng cho bảng hướng dẫn */
+#guide-modal {
+    display: none; /* Ẩn bảng hướng dẫn mặc định */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Ban đầu ẩn và thu nhỏ */
+    transition: transform 0.5s ease-in-out; /* Hiệu ứng zoom khi hiển thị */
+    z-index: 20;
+}
+
+#guide-modal.show {
+    display: block;
+    transform: translate(-50%, -50%) scale(1); /* Hiển thị và phóng to */
+}
+
+
+#guide-modal-content {
+    position: relative;
+    width: 1300px; /* Kích thước bảng hướng dẫn */
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#guide-image {
+    width: 100%; /* Hình ảnh bảng hướng dẫn chiếm toàn bộ bảng */
+    height: auto;
+}
+
+
+/* Định dạng cho hình ảnh quay lại */
+#back-button-container {
+    position: fixed;
+    top: 20px;
+    right: 140px;
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Hiệu ứng zoom mượt */
+}
+
+#back-button {
+    width: 50px;
+    height: auto;
+}
+#back-button-container:hover {
+    transform: scale(1.2); /* Phóng to 1.2 lần khi di chuột */
+}
+/* Định dạng cho hình ảnh âm thanh */
+#sound-button-container {
+    position: fixed;
+    top: 20px;
+    right: 200px;
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Hiệu ứng zoom mượt */
+}
+
+#sound-button-container:hover {
+    transform: scale(1.2); /* Phóng to 1.2 lần khi di chuột */
+}
+
+#sound-button {
+    width: 53px;
+    height: auto;
+}
+
+/* Định dạng cho hình ảnh play */
+#play-button-container {
+    position: fixed;
+    top: 21px;
+    right: 264px;
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Hiệu ứng zoom mượt */
+}
+
+#play-button-container:hover {
+    transform: scale(1.2); /* Phóng to 1.2 lần khi di chuột */
+}
+
+#play-button {
+    width: 53px;
+    height: auto;
+}
+
+/* Định dạng cho hình ảnh sangphai1 */
+#sangphai1 {
+    position: fixed;
+    top: calc(50% + 1cm); /* Lùi xuống 1cm so với giữa màn hình */
+    right: 3cm; /* Cách phải 3cm */
+    transform: translateY(-50%); /* Căn giữa theo chiều dọc */
+    display: none; /* Ẩn hình ảnh này mặc định */
+    z-index: 10; /* Đảm bảo hình ảnh nằm trên nền */
+    width: 45px;
+    cursor: pointer; /* Đổi kiểu con trỏ khi di chuột vào hình ảnh */
+
+}
+
+/* Khi thay đổi nền thành thoai1.png, hiển thị sangphai1.png */
+body.with-sangphai1 #sangphai1 {
+    display: block; /* Hiển thị hình ảnh khi có lớp with-sangphai1 */
+}
+
+/* Định dạng cho hình ảnh sangphai2 */
+#sangphai2 {
+    position: fixed;
+    top: calc(50%); /* Lùi xuống 1cm so với giữa màn hình */
+    right: 11cm; /* Cách phải 11cm */
+    transform: translateY(-50%); /* Căn giữa theo chiều dọc */
+    display: none; /* Ẩn hình ảnh này mặc định */
+    z-index: 10; /* Đảm bảo hình ảnh nằm trên nền */
+    width: 48px;
+    cursor: pointer; /* Đổi kiểu con trỏ khi di chuột vào hình ảnh */
+
+}
+
+/* Khi thay đổi nền thành thoai2.png, hiển thị sangphai2.png */
+body.with-sangphai2 #sangphai2 {
+    display: block; /* Hiển thị hình ảnh khi có lớp with-sangphai2 */
+}
+
+/* Định dạng cho hình ảnh sangphai2 */
+#sangtrai2 {
+    position: fixed;
+    top: calc(50% + 2.2mm); /* Lùi xuống 1.8mm so với giữa màn hình */
+    left: 3cm; /* Cách trái 3cm */
+    transform: translateY(-50%); /* Căn giữa theo chiều dọc */
+    display: none; /* Ẩn hình ảnh này mặc định */
+    z-index: 10; /* Đảm bảo hình ảnh nằm trên nền */
+    width: 53px;
+    cursor: pointer; /* Đổi kiểu con trỏ khi di chuột vào hình ảnh */
+
+}
+
+/* Khi thay đổi nền thành thoai2.png, hiển thị sangtrai2.png */
+body.with-sangtrai2 #sangtrai2 {
+    display: block; /* Hiển thị hình ảnh khi có lớp with-sangtrai2 */
+}
+
+
+/* Định dạng cho hình ảnh sangphai3 */
+#sangphai3 {
+    position: fixed;
+    top: calc(50% + 0.8cm); /* Lùi xuống 1cm so với giữa màn hình */
+    right: 3cm; /* Cách phải 3cm */
+    transform: translateY(-50%); /* Căn giữa theo chiều dọc */
+    display: none; /* Ẩn hình ảnh này mặc định */
+    z-index: 10; /* Đảm bảo hình ảnh nằm trên nền */
+    width: 45px;
+    cursor: pointer; /* Đổi kiểu con trỏ khi di chuột vào hình ảnh */
+
+}
+/* Khi thay đổi nền thành thoai3.png, hiển thị sangphai13.png */
+body.with-sangphai3 #sangphai3 {
+    display: block; /* Hiển thị hình ảnh khi có lớp with-sangphai3 */
+}
+
+
+/* Định dạng cho hình ảnh sangtrai3 */
+#sangtrai3 {
+    position: fixed;
+    top: calc(50% + 1.95mm); /* Lùi xuống 1.8mm so với giữa màn hình */
+    left: 7cm; /* Cách trái 3cm */
+    transform: translateY(-50%); /* Căn giữa theo chiều dọc */
+    display: none; /* Ẩn hình ảnh này mặc định */
+    z-index: 10; /* Đảm bảo hình ảnh nằm trên nền */
+    width: 48px;
+    cursor: pointer; /* Đổi kiểu con trỏ khi di chuột vào hình ảnh */
+
+}
+
+/* Khi thay đổi nền thành thoai3.png, hiển thị sangtrai3.png */
+body.with-sangtrai3 #sangtrai3 {
+    display: block; /* Hiển thị hình ảnh khi có lớp with-sangtrai3 */
+}
+
+/* Định dạng cho hình ảnh sangphai4 */
+#sangphai4 {
+    position: fixed;
+    top: calc(50%); /* Lùi xuống 1cm so với giữa màn hình */
+    right: 11cm; /* Cách phải 11cm */
+    transform: translateY(-50%); /* Căn giữa theo chiều dọc */
+    display: none; /* Ẩn hình ảnh này mặc định */
+    z-index: 10; /* Đảm bảo hình ảnh nằm trên nền */
+    width: 48px;
+    cursor: pointer; /* Đổi kiểu con trỏ khi di chuột vào hình ảnh */
+
+}
+
+/* Khi thay đổi nền thành thoai4.png, hiển thị sangphai4.png */
+body.with-sangphai4 #sangphai4 {
+    display: block; /* Hiển thị hình ảnh khi có lớp with-sangphai4 */
+}
+
+/* Định dạng cho hình ảnh sangtrai4 */
+#sangtrai4 {
+    position: fixed;
+    top: calc(50% + 2.2mm); /* Lùi xuống 1.8mm so với giữa màn hình */
+    left: 7cm; /* Cách trái 3cm */
+    transform: translateY(-50%); /* Căn giữa theo chiều dọc */
+    display: none; /* Ẩn hình ảnh này mặc định */
+    z-index: 10; /* Đảm bảo hình ảnh nằm trên nền */
+    width: 53px;
+    cursor: pointer; /* Đổi kiểu con trỏ khi di chuột vào hình ảnh */
+
+}
+
+/* Khi thay đổi nền thành thoai2.png, hiển thị sangtrai4.png */
+body.with-sangtrai4 #sangtrai4 {
+    display: block; /* Hiển thị hình ảnh khi có lớp with-sangtrai5 */
+}
+
+
+/* Đảm bảo banghuongdan nằm giữa trang web */
+#banghuongdan {
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    top: 50%;            /* Căn giữa theo chiều dọc */
+    left: 50%;           /* Căn giữa theo chiều ngang */
+    transform: translate(-50%, -50%); /* Dịch chuyển hình ảnh về trung tâm */
+    width: 90%;          /* Chiếm 90% chiều rộng màn hình */
+    max-width: 1000px;   /* Kích thước tối đa của bảng hướng dẫn */
+    height: auto;
+    border-radius: 8px;  /* Bo góc */
+    overflow: hidden;    /* Ẩn phần thừa */
+    display: flex;       /* Dùng Flexbox để căn giữa nội dung */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+/* Đảm bảo sangtrai5 nằm trên banghuongdan */
+#sangtrai5 {
+    position: absolute;  /* Đặt vị trí tuyệt đối */
+    top: 75%;            /* Cùng vị trí với banghuongdan (hoặc điều chỉnh) */
+    left: 9cm;           /* Cách từ trái 3cm (tương đương với khoảng cách bạn yêu cầu) */
+    z-index: 2;          /* Đảm bảo sangtrai5 nằm trên banghuongdan */
+    width: 60px;         /* Điều chỉnh kích thước của sangtrai5 */
+    height: auto;        /* Điều chỉnh chiều cao của sangtrai5 nếu cần */
+    cursor: pointer; /* Đổi kiểu con trỏ khi di chuột vào hình ảnh */
+
+}
+
+/* Đảm bảo sangtrai5 nằm trên banghuongdan */
+#sangtrai5 {
+    position: absolute;  /* Đặt vị trí tuyệt đối */
+    top: 75%;            /* Cùng vị trí với banghuongdan (hoặc điều chỉnh) */
+    left: 10cm;           /* Cách từ trái 3cm (tương đương với khoảng cách bạn yêu cầu) */
+    z-index: 2;          /* Đảm bảo sangtrai5 nằm trên banghuongdan */
+    width: 60px;         /* Điều chỉnh kích thước của sangtrai5 */
+    height: auto;        /* Điều chỉnh chiều cao của sangtrai5 nếu cần */
+    cursor: pointer; /* Đổi kiểu con trỏ khi di chuột vào hình ảnh */
+
+}
+
+/* Đảm bảo play nằm trên banghuongdan */
+#play5 {
+    position: absolute;  /* Đặt vị trí tuyệt đối */
+    top: 75%;            /* Cùng vị trí với banghuongdan (hoặc điều chỉnh) */
+    right: 9cm;           /* Cách từ trái 3cm (tương đương với khoảng cách bạn yêu cầu) */
+    z-index: 2;          /* Đảm bảo play nằm trên banghuongdan */
+    width: 55px;         /* Điều chỉnh kích thước của play */
+    height: auto;        /* Điều chỉnh chiều cao của play nếu cần */
+    cursor: pointer; /* Đổi kiểu con trỏ khi di chuột vào hình ảnh */
+
+}
+/* Định dạng cho các hình ảnh mới thêm vào dưới trang */
+.new-image {
+    position: absolute;
+    bottom: 5px;
+    width: 170px;
+    height: auto;
+    margin: 10px;
+    cursor: pointer; /* Đổi kiểu con trỏ khi di chuột vào hình ảnh */
+    transition: all 0.3s ease-in-out; /* Thêm hiệu ứng chuyển động mượt */
+}
+
+/* Hiệu ứng khi di chuột vào hình ảnh */
+.new-image:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.7); /* Tạo hiệu ứng phát sáng */
+    transform: scale(1.1); /* Phóng to hình ảnh khi hover */
+}
+
+/* Định vị các hình ảnh cụ thể */
+#Tao {
+    left: 13%;
+}
+
+#Chia {
+    left: 28%;
+}
+
+#Sapxep {
+    left: 44%;
+}
+
+#Hopnhat {
+    left: 60%;
+}
+
+#Hoanthanh {
+    left: 74%;
+}
+
+
